@@ -12,9 +12,24 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
-
   // Your code here
+word = word.trim().toLowerCase();
+const wordArr = word.split('')
+const regEx = /['aeiou']/
 
+// if the first letter of the word matches any vowel (the regular expression aeiou) add yay to the end of the word
+if (wordArr[0].match(regEx)) {
+    return word + 'yay'
+} else {
+  // find the index of the first vowel in the word 
+  const vowelIndex = word.search(regEx)
+  // slice off the consonants before that first vowel, and store them in a variable
+  const firstConsonnants = word.slice(0, vowelIndex)
+  // slice off the rest of the word from the vowel index until the end
+  const restOfWord = word.slice(vowelIndex, word.length)
+  // add the first consonnants to the rest of the word, and then add ay
+  return restOfWord + firstConsonnants + 'ay'
+}
 }
 
 // the first function called in the program to get an input from the user
