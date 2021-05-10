@@ -10,12 +10,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 const pigLatin = (word) => {
   // Your code here
 word = word.trim().toLowerCase();
 const wordArr = word.split('')
 const regEx = /['aeiou']/
+
+// instructions for interacting with the DOM
+document.getElementById('word').value = word
+console.log(word)
+
 
 // if the first letter of the word matches any vowel (the regular expression aeiou) add yay to the end of the word
 if (wordArr[0].match(regEx)) {
@@ -31,6 +35,7 @@ if (wordArr[0].match(regEx)) {
   return restOfWord + firstConsonnants + 'ay'
 }
 }
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
